@@ -1,15 +1,15 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { ComparisonForm } from "@/components/comparison/ComparisonForm";
 import { ComparisonReport } from "@/components/comparison/ComparisonReport";
 import { useComparisonStorage } from "@/hooks/useComparisonStorage";
-import { analyzeResumes, AnalysisReport } from "@/lib/analyzer";
+import { analyzeResumes, EnhancedAnalysisReport } from "@/lib/analyzer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 export function Comparison() {
   const { data, isLoaded, updateResume, updateJobDescription, clearAll } = useComparisonStorage();
-  const [report, setReport] = useState<AnalysisReport | null>(null);
+  const [report, setReport] = useState<EnhancedAnalysisReport | null>(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
 
   const handleCompare = () => {
